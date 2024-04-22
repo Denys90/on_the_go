@@ -16,11 +16,11 @@ import {
   SvgHeart,
 } from './Catalog.styled';
 import svg from 'assets/icons/symbol-defs.svg';
+
 import { useEffect, useState } from 'react';
 import Modal from '../Modal/Modal';
 import { Details } from '../Details/Details';
 import { useAdvert } from '../../Hooks/useAdvert';
-import Automatic from 'assets/icons/Automatic.svg';
 
 export const CatalogList = ({ advert }) => {
   const [isOpen, setIsOpen] = useState(false);
@@ -70,7 +70,7 @@ export const CatalogList = ({ advert }) => {
               {price}
               <SvgHeart isFavorite={isFavorite}>
                 <use
-                  href={`${svg}#icon-heart__Default`}
+                  href={`${svg}#icon-hart`}
                   onClick={handleFavoriteClick}
                 ></use>
               </SvgHeart>
@@ -94,7 +94,7 @@ export const CatalogList = ({ advert }) => {
 
             <LocationPin>
               <SvgLocation>
-                <use href={`${svg}#icon-map-pin`}></use>
+                <use href={`${svg}#icon-map`}></use>
               </SvgLocation>
               <p> {location}</p>
             </LocationPin>
@@ -103,19 +103,19 @@ export const CatalogList = ({ advert }) => {
 
           <StyleDetails>
             <SVGIcons>
-              <use href={`${svg}#icon-Users`}></use>
+              <use href={`${svg}#icon-users`}></use>
             </SVGIcons>
             {adults} adults
           </StyleDetails>
           <StyleDetails>
             <SVGIcons>
-              <use href={`${Automatic}`}></use>
+              <use href={`${svg}#icon-conect`}></use>
             </SVGIcons>
             {transmission}
           </StyleDetails>
           <StyleDetails>
             <SVGIcons>
-              <use href={`${svg}#icon-Petrol`}></use>
+              <use href={`${svg}#icon-gasstation`}></use>
             </SVGIcons>
             {engine}
           </StyleDetails>
@@ -123,23 +123,23 @@ export const CatalogList = ({ advert }) => {
           {details.kitchen > 0 ? (
             <StyleDetails>
               <SVGIcons>
-                <use href={`${svg}#icon-kitchen`}></use>
+                <use href={`${svg}#icon-fork`}></use>
               </SVGIcons>
-              {details.kitchen.length > 0 ? 'kitchen' : null} kitchen
+              {details.kitchen.length > 0 ? 'icon-fork' : null} kitchen
             </StyleDetails>
           ) : null}
 
           <StyleDetails>
             <SVGIcons>
-              <use href={`${svg}#icon-beds`}></use>
+              <use href={`${svg}#icon-bed`}></use>
             </SVGIcons>
             {details.beds} beds
           </StyleDetails>
           <StyleDetails>
             <SVGIcons>
-              <use href={`${svg}#icon-AC`}></use>
+              <use href={`${svg}#icon-microwave`}></use>
             </SVGIcons>
-            {details.airConditioner.length > 0 ? 'airConditioner' : null} AC
+            {details.airConditioner.length > 0 ? 'icon-microwave' : null} AC
           </StyleDetails>
           <ShowMoreBtn type="button" onClick={toggleModal}>
             Show more

@@ -19,13 +19,14 @@ export const Logo = styled(NavLink)`
 `;
 
 export const NavLinks = styled(NavLink)`
-  padding-right: 50px;
   color: ${theme.colors.black};
   font-size: 16px;
-  text-decoration: none;
-  margin: 0 15px;
   padding: 10px 0;
   position: relative;
+  padding-right: 20px;
+  &:nth-last-of-type(1) {
+    padding-right: 0;
+  }
   transition:
     color 0.3s,
     transform 0.3s,
@@ -44,4 +45,7 @@ export const NavLinks = styled(NavLink)`
 export const LogoImg = styled.img`
   width: 36px;
   height: 36px;
+`;
+export const NavContainer = styled.div`
+  margin-right: 50px;
 `;

@@ -182,17 +182,18 @@ export const LoadMore = styled.button`
   align-items: center;
   padding: 16px 40px 16px 40px;
   border-radius: 200px;
-  border: 1px solid ${theme.colors.lightGray};
+
+  box-shadow: ${theme.colors.boxShadow};
   background: white;
   &:hover {
-    border-color: ${theme.colors.red};
+    box-shadow: ${theme.colors.btnShadow};
   }
 `;
 export const Rating_Block = styled.div`
-  width: 120px;
+  margin: 0;
+  padding: 0;
   color: ${theme.colors.black};
   display: flex;
   justify-content: center;
   align-items: center;
-  border-bottom: 1px solid ${theme.colors.black};
 `;

@@ -16,9 +16,9 @@ export const ContainerRight = styled.div`
 `;
 export const ContainerIcon = styled.div`
   width: 430px;
-  height: 200px;
-  margin-top: 44px;
-  border-bottom: 2px solid rgb(247, 247, 247);
+  margin-top: 24px;
+  padding: 20px;
+  border-bottom: 2px solid ${theme.colors.grayScroll};
 `;
 export const VehicleDetailsContainer = styled.div`
   width: 430px;

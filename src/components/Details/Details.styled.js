@@ -88,3 +88,6 @@ export const BtnFeatures = styled.button`
 export const Wrapper = styled.div`
   border-bottom: 2px solid ${theme.colors.lightGray};
 `;
+export const Underline = styled.div`
+  border-bottom: 1px solid ${theme.colors.black};
+`;

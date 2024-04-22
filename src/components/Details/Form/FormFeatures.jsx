@@ -47,7 +47,7 @@ const FormFeatures = () => {
 
             <ContainerCalendar>
               <Svg>
-                <use href={`${svg}#icon-Calendar`}></use>
+                <use href={`${svg}#icon-calendar`}></use>
               </Svg>
               <label htmlFor="bookingDate"></label>
               <Input

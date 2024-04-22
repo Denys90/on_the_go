@@ -59,6 +59,7 @@ export const ContainerCalendar = styled.div`
 `;
 
 export const Svg = styled.svg`
+  pointer-events: none;
   position: absolute;
   top: 27px;
   left: 370px;

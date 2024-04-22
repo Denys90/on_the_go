@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 import svg from 'assets/icons/symbol-defs.svg';
 import {
@@ -30,6 +30,12 @@ export const Details = ({ id }) => {
   const adverts = useSelector((state) => state.adverts.adverts);
   const advert = adverts.find((advert) => advert._id === id);
 
+  useEffect(() => {
+    if (advert) {
+      setContent(RenderFeatures(advert));
+    }
+  }, [advert]);
+
   const handleSetActiveButton = (buttonName) => {
     setActiveButton(buttonName);
     if (buttonName === 'Features') {
@@ -50,19 +56,20 @@ export const Details = ({ id }) => {
                   <SvgRating>
                     <use href={`${svg}#Rating`}></use>
                   </SvgRating>
+
                   <p>{advert.rating}</p>
                   <p>
                     (
                     {advert.reviews.reduce(
                       (total, review) => total + review.reviewer_rating,
                       0
-                    )}
+                    )}{' '}
                     Reviews)
                   </p>
                 </Rating_Block>
                 <LocationPin>
                   <SvgLocation>
-                    <use href={`${svg}#icon-map-pin`}></use>
+                    <use href={`${svg}#icon-map`}></use>
                   </SvgLocation>
                   <p> {advert.location}</p>
                 </LocationPin>

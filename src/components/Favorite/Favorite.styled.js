@@ -83,3 +83,21 @@ export const NoFavorite = styled.p`
 export const Title = styled.h1`
   margin-top: 40px;
 `;
+export const Rating_Box = styled.div`
+  display: flex;
+  margin-bottom: 8px;
+`;
+export const Wrapper_Rating = styled.div`
+  /* display: block;
+  justify-content: flex-start; */
+`;
+
+export const LocationPinF = styled.div`
+  font-size: 16px;
+  display: flex;
+  align-items: center;
+`;
+export const Box_location = styled.div`
+  display: flex;
+  align-items: center;
+`;

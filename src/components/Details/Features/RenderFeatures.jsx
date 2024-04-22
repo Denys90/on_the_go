@@ -21,21 +21,21 @@ export const RenderFeatures = (advert) => {
         <ContainerIcon>
           <StyleDetailsFeatures>
             <SVGIcons>
-              <use href={`${svg}#icon-Users`}></use>
+              <use href={`${svg}#icon-users`}></use>
             </SVGIcons>
             {advert.adults} adults
           </StyleDetailsFeatures>
 
           <StyleDetailsFeatures>
             <SVGIcons>
-              <use href={`${svg}#icon-Automatic`}></use>
+              <use href={`${svg}#icon-conect`}></use>
             </SVGIcons>
             {advert.transmission}
           </StyleDetailsFeatures>
 
           <StyleDetailsFeatures>
             <SVGIcons>
-              <use href={`${svg}#icon-AC`}></use>
+              <use href={`${svg}#icon-wind`}></use>
             </SVGIcons>
             {advert.details.airConditioner.length > 0 ? 'airConditioner' : null}{' '}
             AC
@@ -43,49 +43,49 @@ export const RenderFeatures = (advert) => {
 
           <StyleDetailsFeatures>
             <SVGIcons>
-              <use href={`${svg}#icon-Petrol`}></use>
+              <use href={`${svg}#icon-gasstation`}></use>
             </SVGIcons>
             {advert.details.gas}
           </StyleDetailsFeatures>
 
           <StyleDetailsFeatures>
             <SVGIcons>
-              <use href={`${svg}#icon-kitchen`}></use>
+              <use href={`${svg}#icon-fork`}></use>
             </SVGIcons>
-            {advert.details.kitchen.length > 0 ? 'kitchen' : null} kitchen
+            {advert.details.kitchen.length > 0 ? 'icon-fork' : null} kitchen
           </StyleDetailsFeatures>
 
           <StyleDetailsFeatures>
             <SVGIcons>
-              <use href={`${svg}#icon-beds`}></use>
+              <use href={`${svg}#icon-bed`}></use>
             </SVGIcons>
             {advert.details.beds} beds
           </StyleDetailsFeatures>
 
           <StyleDetailsFeatures>
             <SVGIcons>
-              <use href={`${svg}#icon-Conditioner`}></use>
+              <use href={`${svg}#icon-streamline_hotel-air-conditioner`}></use>
             </SVGIcons>
             {advert.details.beds} air conditioner
           </StyleDetailsFeatures>
 
           <StyleDetailsFeatures>
             <SVGIcons>
-              <use href={`${svg}#icon-CD`}></use>
+              <use href={`${svg}#icon-musik`}></use>
             </SVGIcons>
             {advert.details.CD} CD
           </StyleDetailsFeatures>
 
           <StyleDetailsFeatures>
             <SVGIcons>
-              <use href={`${svg}#icon-Radio`}></use>
+              <use href={`${svg}#icon-radio`}></use>
             </SVGIcons>
             {advert.details.radio} Radio
           </StyleDetailsFeatures>
 
           <StyleDetailsFeatures>
             <SVGIcons>
-              <use href={`${svg}#icon-hob`}></use>
+              <use href={`${svg}#icon-microwave`}></use>
             </SVGIcons>
             {advert.details.hob} hob
           </StyleDetailsFeatures>

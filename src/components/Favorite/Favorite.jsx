@@ -1,20 +1,17 @@
 import { useAdvert } from '../../Hooks/useAdvert';
-import {
-  LocationPin,
-  Rating_Block,
-  ShowMoreBtn,
-  SvgLocation,
-  SvgRating,
-} from '../Catalog/Catalog.styled';
+import { ShowMoreBtn, SvgLocation, SvgRating } from '../Catalog/Catalog.styled';
 
 import {
   Box,
+  Box_location,
   BtnDelete,
   CardInfo,
   Item,
+  LocationPinF,
   Name,
   NoFavorite,
   PriceFavorite,
+  Rating_Box,
   Title,
 } from './Favorite.styled';
 import svg from 'assets/icons/symbol-defs.svg';
@@ -45,26 +42,31 @@ export const Favorite = () => {
                   <Name>{cemper.name}</Name>
 
                   <Box>
-                    <SvgRating>
-                      <use href={`${svg}#Rating`}></use>
-                    </SvgRating>
-                    <Rating_Block>
-                      <p>{cemper.rating}</p>
-                      <p>
-                        (
-                        {cemper.reviews.reduce(
-                          (total, review) => total + review.reviewer_rating,
-                          0
-                        )}{' '}
-                        Reviews)
-                      </p>
-                    </Rating_Block>
-                    <LocationPin>
-                      <SvgLocation>
-                        <use href={`${svg}#icon-map-pin`}></use>
-                      </SvgLocation>
-                      <p> {cemper.location}</p>
-                    </LocationPin>
+                    <div>
+                      <Rating_Box>
+                        <SvgRating>
+                          <use href={`${svg}#Rating`}></use>
+                        </SvgRating>{' '}
+                        <p>{cemper.rating}</p>
+                        <p>
+                          (
+                          {cemper.reviews.reduce(
+                            (total, review) => total + review.reviewer_rating,
+                            0
+                          )}{' '}
+                          Reviews)
+                        </p>
+                      </Rating_Box>
+                      <Box_location>
+                        {' '}
+                        <SvgLocation>
+                          <use href={`${svg}#icon-map`}></use>
+                        </SvgLocation>
+                        <LocationPinF>
+                          <p> {cemper.location}</p>
+                        </LocationPinF>
+                      </Box_location>
+                    </div>
                   </Box>
                   <ShowMoreBtn type="button" onClick={toggleModal}>
                     Show more
