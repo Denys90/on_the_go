@@ -1,4 +1,4 @@
-// import { FooterComponent } from 'components/Footer/Footer';
+import { FooterComponent } from 'components/Footer/Footer';
 
 import { Header } from 'components/Header/Header';
 import { Suspense } from 'react';
@@ -11,7 +11,7 @@ const SharedLayout = () => {
       <Suspense fallback={null}>
         <Outlet />
       </Suspense>
-      {/* <FooterComponent /> */}
+      <FooterComponent />
     </>
   );
 };

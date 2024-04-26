@@ -5,6 +5,7 @@ body {
   width: 1440px;
   height: 100vh;
   margin: auto;
+  flex: 1 1 auto;
 }
 h1,
 h2,
@@ -29,4 +30,7 @@ img {
 }
 button {
   cursor: pointer;
+}
+.page {
+  flex: 1 1 auto;
 }

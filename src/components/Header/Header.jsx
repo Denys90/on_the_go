@@ -6,7 +6,7 @@ import {
   NavLinks,
 } from './Header.styled';
 
-import Camper from 'assets/favicon.png';
+import Camper from 'assets/favicon/free-icon-camper-6734383.png';
 
 export const Header = () => {
   return (

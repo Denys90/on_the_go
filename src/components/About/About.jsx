@@ -1,10 +1,12 @@
 import { Description, Kard, Title, Wrapper } from './About.styled';
-// import { Infinite } from './Infinite/Infinite';
+import { Infinite } from './Infinite/Infinite';
 
 const About = () => {
   return (
     <>
-      <div>{/* <Infinite /> */}</div>
+      <div>
+        <Infinite />
+      </div>
       <Wrapper>
         <Kard>
           <Title>Convenient reservation system</Title>
