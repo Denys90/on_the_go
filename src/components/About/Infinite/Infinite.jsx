@@ -1,57 +1,56 @@
-import { Swiper, SwiperSlide } from 'swiper/react';
-import 'swiper/css';
-import 'swiper/swiper-bundle.css';
+import { useEffect, useRef } from 'react';
+import { register } from 'swiper/element/bundle';
 
-import bg from 'assets/Images/one.jpg';
-import two from 'assets/Images/tow.jpg';
+import one from 'assets/Images/one.jpg';
+import two from 'assets/Images/two.jpg';
 import third from 'assets/Images/third.jpg';
 import fourth from 'assets/Images/fourth.jpg';
-import five from 'assets/Images/five.jpg';
-import sex from 'assets/Images/sex.jpg';
-import { useEffect, useRef } from 'react';
+import fifth from 'assets/Images/fifth.jpg';
+import sixth from 'assets/Images/sixth.jpg';
+import { ImageStyles } from './Infinite.styled';
+
+register();
 
 export const Infinite = () => {
   const swiperElRef = useRef(null);
 
   useEffect(() => {
-    swiperElRef.current.addEventListener('swiperprogress', (e) => {
-      const [swiper, progress] = e.detail;
-      console.log(progress);
-      console.log(swiper);
-    });
-
-    swiperElRef.current.addEventListener('swiperslidechange', () => {
-      console.log('slide changed');
-    });
+    const swiper = swiperElRef.current.swiper;
+    if (swiper) {
+      swiper.init();
+    }
   }, []);
 
   return (
     <>
-      <Swiper
+      <swiper-container
         ref={swiperElRef}
-        slides-per-view={1}
+        slidesPerView={1}
         navigation={true}
-        pagination={true}
+        pagination={{ clickable: true }}
+        speed={1000}
+        loop={true}
+        autoplay={{ delay: 2000 }}
       >
-        <SwiperSlide>
-          <img src={bg} alt="image" width="500" height="500" />
-        </SwiperSlide>
-        <SwiperSlide>
-          <img src={two} alt="image" width="500" height="500" />
-        </SwiperSlide>
-        <SwiperSlide>
-          <img src={third} alt="image" width="500" height="500" />
-        </SwiperSlide>
-        <SwiperSlide>
-          <img src={fourth} alt="image" width="500" height="500" />
-        </SwiperSlide>
-        <SwiperSlide>
-          <img src={five} alt="image" width="500" height="500" />
-        </SwiperSlide>
-        <SwiperSlide>
-          <img src={sex} alt="image" width="500" height="500" />
-        </SwiperSlide>
-      </Swiper>
+        <swiper-slide>
+          <ImageStyles src={one} alt="image" width="1000" height="1000" />
+        </swiper-slide>
+        <swiper-slide>
+          <ImageStyles src={two} alt="image" width="1000" height="1000" />
+        </swiper-slide>
+        <swiper-slide>
+          <ImageStyles src={third} alt="image" width="1000" height="1000" />
+        </swiper-slide>
+        <swiper-slide>
+          <ImageStyles src={fourth} alt="image" width="1000" height="1000" />
+        </swiper-slide>
+        <swiper-slide>
+          <ImageStyles src={fifth} alt="image" width="1000" height="1000" />
+        </swiper-slide>
+        <swiper-slide>
+          <ImageStyles src={sixth} alt="image" width="1000" height="1000" />
+        </swiper-slide>
+      </swiper-container>
     </>
   );
 };

@@ -3,6 +3,7 @@ import { theme } from 'styles/theme';
 
 export const Main = styled.div`
   display: flex;
+  height: auto;
 `;
 export const ContainerLeft = styled.div``;
 export const ContainerRight = styled.div`
@@ -18,13 +19,13 @@ export const ContainerIcon = styled.div`
   width: 430px;
   margin-top: 24px;
   padding: 20px;
-  border-bottom: 2px solid ${theme.colors.grayScroll};
 `;
 export const VehicleDetailsContainer = styled.div`
   width: 430px;
-  height: 200px;
-  margin-top: 44px;
+  padding-top: 20px;
+  border-top: 2px solid ${theme.colors.grayScroll};
 `;
+
 export const FormContainer = styled.div`
   display: flex;
   justify-content: space-between;
@@ -59,7 +60,13 @@ export const StyleDetailsFeatures = styled.div`
 `;
 
 export const Title = styled.h2`
-  margin-bottom: 48px;
+  font-family: Inter;
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 24px;
+  letter-spacing: 0%;
+  text-align: left;
+  margin-bottom: 20px;
 `;
 export const TitleSecond = styled.h2`
   font-size: 20px;

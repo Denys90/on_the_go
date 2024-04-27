@@ -12,6 +12,7 @@ export const HeaderWrapper = styled.div`
   border-bottom-left-radius: 20px;
   border-bottom-right-radius: 20px;
   box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+  margin-bottom: 40px;
 `;
 
 export const Logo = styled(NavLink)`
