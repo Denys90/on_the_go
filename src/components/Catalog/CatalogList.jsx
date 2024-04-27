@@ -67,7 +67,7 @@ export const CatalogList = ({ advert }) => {
           <Title_Price>
             <h2> {name}</h2>
             <Price>
-              {price}
+              {price}.00
               <SvgHeart isFavorite={isFavorite}>
                 <use
                   href={`${svg}#icon-hart`}

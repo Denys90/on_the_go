@@ -39,6 +39,12 @@ export const Name = styled.h2`
   margin-bottom: 8px;
   font-size: 24px;
   font-weight: 700;
+
+  font-size: 24px;
+  font-weight: 600;
+  line-height: 30px;
+  letter-spacing: 0%;
+  text-align: left;
 `;
 
 export const CardInfo = styled.div`
@@ -47,7 +53,7 @@ export const CardInfo = styled.div`
 
 export const BtnDelete = styled.button`
   position: absolute;
-  top: 208px;
+  top: 230px;
   right: 20px;
   font-size: 18px;
   color: ${theme.colors.black};
@@ -56,14 +62,17 @@ export const BtnDelete = styled.button`
 
   &:hover {
     color: ${theme.colors.red};
-    text-shadow: ${theme.colors.btnShadow};
-    transform: scale(1.1);
   }
 `;
 
 export const PriceFavorite = styled.p`
   display: block;
-  font-size: 36px;
+
+  font-size: 24px;
+  font-weight: 600;
+  line-height: 30px;
+  letter-spacing: 0%;
+  text-align: left;
   color: ${theme.colors.black};
   &::before {
     content: '\\20AC';
@@ -81,7 +90,12 @@ export const NoFavorite = styled.p`
   transform: translate(-50%, -50%);
 `;
 export const Title = styled.h1`
-  margin-top: 40px;
+  font-size: 24px;
+  font-weight: 600;
+  line-height: 30px;
+  letter-spacing: 0%;
+  text-align: left;
+  padding-top: 80px;
 `;
 export const Rating_Box = styled.div`
   display: flex;

@@ -2,6 +2,7 @@ import styled from '@emotion/styled';
 import { theme } from 'styles/theme';
 
 export const MainContainer = styled.div`
+  margin-top: 60px;
   display: block;
 `;
 export const Container = styled.div`

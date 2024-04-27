@@ -1,9 +1,15 @@
-import { Description, Kard, Title, Wrapper } from './About.styled';
+import {
+  AboutContainer,
+  Description,
+  Kard,
+  Title,
+  Wrapper,
+} from './About.styled';
 import { Infinite } from './Infinite/Infinite';
 
 const About = () => {
   return (
-    <>
+    <AboutContainer>
       <div>
         <Infinite />
       </div>
@@ -53,7 +59,7 @@ const About = () => {
           </Description>
         </Kard>
       </Wrapper>
-    </>
+    </AboutContainer>
   );
 };
 

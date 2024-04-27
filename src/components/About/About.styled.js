@@ -1,6 +1,9 @@
 import styled from '@emotion/styled';
 import { theme } from 'styles/theme';
 
+export const AboutContainer = styled.div`
+  padding-top: 100px;
+`;
 export const Wrapper = styled.div`
   display: grid;
   grid-template-columns: repeat(5, 1fr);

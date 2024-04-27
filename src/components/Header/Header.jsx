@@ -13,7 +13,7 @@ export const Header = () => {
     <>
       <HeaderWrapper>
         <Logo to="/">
-          <LogoImg src={Camper} alt="logo" />
+          <LogoImg src={Camper} alt="logo" /> <p>OnTheGo</p>
         </Logo>
         <NavContainer>
           <NavLinks to="/">Home</NavLinks>

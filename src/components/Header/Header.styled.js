@@ -3,20 +3,41 @@ import { theme } from 'styles/theme';
 import { NavLink } from 'react-router-dom';
 
 export const HeaderWrapper = styled.div`
+  position: fixed;
   display: flex;
-  justify-content: space-between;
   align-items: center;
+  padding: 0 50px;
   height: 60px;
-  width: auto 0;
+  width: 1440px;
   border-top: none;
   border-bottom-left-radius: 20px;
   border-bottom-right-radius: 20px;
   box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
-  margin-bottom: 40px;
+  background-color: ${theme.colors.white};
 `;
 
 export const Logo = styled(NavLink)`
-  padding-left: 50px;
+  display: flex;
+  align-items: center;
+  margin-right: 990px;
+  p {
+    margin-left: 10px;
+    font-size: 24px;
+    font-weight: 600;
+    line-height: 30px;
+    letter-spacing: 0%;
+    text-align: left;
+
+    background-image: linear-gradient(
+      122deg,
+      rgba(238, 255, 118, 1) 3%,
+      rgba(223, 46, 23, 1) 59%
+    );
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-fill-color: transparent;
+  }
 `;
 
 export const NavLinks = styled(NavLink)`

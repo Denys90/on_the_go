@@ -77,7 +77,7 @@ export const Favorite = () => {
                 Remove
               </BtnDelete>
 
-              <PriceFavorite>{cemper.price}</PriceFavorite>
+              <PriceFavorite>{cemper.price}.00</PriceFavorite>
               {isOpen && (
                 <Modal onClose={toggleModal}>
                   <Details id={cemper._id} toggleModal={toggleModal} />

@@ -17,8 +17,8 @@ export const ContainerRight = styled.div`
 `;
 export const ContainerIcon = styled.div`
   width: 430px;
-  margin-top: 24px;
-  padding: 20px;
+  margin-top: 44px;
+  padding-bottom: 20px;
 `;
 export const VehicleDetailsContainer = styled.div`
   width: 430px;
