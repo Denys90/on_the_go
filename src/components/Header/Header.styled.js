@@ -19,7 +19,7 @@ export const HeaderWrapper = styled.div`
 export const Logo = styled(NavLink)`
   display: flex;
   align-items: center;
-  margin-right: 990px;
+  margin-right: 980px;
   p {
     margin-left: 10px;
     font-size: 24px;

@@ -1,7 +1,8 @@
 import { useEffect, useState } from 'react';
 import { CatalogList } from './CatalogList';
-import { LoadMore, MainContainer } from './Catalog.styled';
+import { AlfaContainer, LoadMore, MainContainer } from './Catalog.styled';
 import { useAdvert } from '../../Hooks/useAdvert';
+import { Filter } from 'components/Filters/Location/Filter/Filter';
 
 const Catalog = () => {
   const [displayedCount, setDisplayedCount] = useState(5);
@@ -19,16 +20,19 @@ const Catalog = () => {
 
   if (isLoading) return <p>Loading...</p>;
   return (
-    <MainContainer>
-      <ul>
-        {newAdverts.map((advert) => (
-          <li key={advert._id}>
-            <CatalogList advert={advert} />
-          </li>
-        ))}
-      </ul>
-      <LoadMore onClick={handleLoadMore}>Load More</LoadMore>
-    </MainContainer>
+    <AlfaContainer>
+      <Filter />
+      <MainContainer>
+        <ul>
+          {newAdverts.map((advert) => (
+            <li key={advert._id}>
+              <CatalogList advert={advert} />
+            </li>
+          ))}
+        </ul>
+        <LoadMore onClick={handleLoadMore}>Load More</LoadMore>
+      </MainContainer>
+    </AlfaContainer>
   );
 };
 

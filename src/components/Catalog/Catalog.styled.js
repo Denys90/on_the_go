@@ -1,8 +1,11 @@
 import styled from '@emotion/styled';
 import { theme } from 'styles/theme';
 
+export const AlfaContainer = styled.div`
+  display: inline-flex;
+  margin-top: 80px;
+`;
 export const MainContainer = styled.div`
-  margin-top: 60px;
   display: block;
 `;
 export const Container = styled.div`
