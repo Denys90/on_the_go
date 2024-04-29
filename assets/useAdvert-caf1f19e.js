@@ -1,4 +1,4 @@
-var Yc=Object.defineProperty;var Lc=(r,n,e)=>n in r?Yc(r,n,{enumerable:!0,configurable:!0,writable:!0,value:e}):r[n]=e;var E=(r,n,e)=>(Lc(r,typeof n!="symbol"?n+"":n,e),e);import{g as xa,n as N,t as re,r as b,R as Ws,j as k,a as Hs,b as jc,c as g,u as nr,d as Wc,e as Hc,f as Bc,h as Vc}from"./index-b6a9dbc3.js";var Bs={exports:{}},q={};/** @license React v16.13.1
+var Yc=Object.defineProperty;var Lc=(r,n,e)=>n in r?Yc(r,n,{enumerable:!0,configurable:!0,writable:!0,value:e}):r[n]=e;var E=(r,n,e)=>(Lc(r,typeof n!="symbol"?n+"":n,e),e);import{g as xa,n as N,t as re,r as b,R as Ws,j as k,a as Hs,b as jc,c as g,u as nr,d as Wc,e as Hc,f as Bc,h as Vc}from"./index-fa5857f1.js";var Bs={exports:{}},q={};/** @license React v16.13.1
  * react-is.production.min.js
  *
  * Copyright (c) Facebook, Inc. and its affiliates.
@@ -173,7 +173,7 @@ var Yc=Object.defineProperty;var Lc=(r,n,e)=>n in r?Yc(r,n,{enumerable:!0,config
   display: flex;
   justify-content: center;
   align-items: center;
-`,ue="/on_the_go/assets/symbol-defs-73d7df8c.svg",pu=N.div`
+`,ue="/on_the_go/assets/symbol-defs-af734289.svg",pu=N.div`
   position: fixed;
   display: flex;
   flex-direction: row;
