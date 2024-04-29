@@ -1,59 +1,47 @@
 import styled from '@emotion/styled';
+import { theme } from 'styles/theme';
 
-export const MainContauner = styled.div`
-  display: block;
-  border: 2px solid black;
-
-  margin-right: 64px;
-
-  border-radius: 10px;
+export const ContainerForEquipment = styled.div`
+  width: 360px;
+  display: inline-flex;
 `;
 
-export const TitleFilter = styled.h2`
+export const FirstTitle = styled.h2`
   font-size: 16px;
   font-weight: 500;
   line-height: 24px;
   letter-spacing: 0%;
   text-align: left;
 `;
-
-export const TitleHeader = styled.h2`
-  font-size: 16px;
-  font-weight: 500;
+export const SecondTitle = styled.h3`
+  font-size: 20px;
+  font-weight: 600;
   line-height: 24px;
   letter-spacing: 0%;
   text-align: left;
 `;
 
-export const CheckboxList = styled.div`
-  border: 2px solid black;
-  border-radius: 10px;
+export const CheckBoxButton = styled.label`
   display: inline-block;
+  /* margin-right: 10px; */
 
-  &:nth-of-type(3) {
-    margin-right: 0;
-  }
-  &:last-of-type {
-    margin-right: 0;
-  }
+  cursor: pointer;
 `;
 
-export const CheckboxWrapper = styled.div`
+export const CheckBoxLabel = styled.span`
   display: inline-block;
-  width: 115px;
-  height: 95px;
-  border: 2px solid red;
-  border-radius: 10px;
   margin-right: 10px;
-  &:active {
-    border-color: blue;
-  }
+  width: 110px;
+  height: 95px;
+  border: 2px solid ${theme.colors.lightGray};
+  border-radius: 10px;
+  border-color: ${(props) =>
+    props.option ? `${theme.colors.red}` : `${theme.colors.grayScroll}`};
 `;
-
-export const Input = styled.input`
-  position: absolute;
+export const CheckBoxInput = styled.input`
+  position: absolute !important;
   opacity: 0;
-  display: none;
+  pointer-events: none;
+  width: 0;
+  height: 0;
 `;
-
-export const CheckboxCustom = styled.div``;
