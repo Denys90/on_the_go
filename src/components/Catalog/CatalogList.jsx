@@ -37,13 +37,11 @@ export const CatalogList = ({ advert }) => {
   };
 
   const handleFavoriteClick = () => {
-    const isFavorite = favorite.some((item) => item._id === advert._id);
     if (isFavorite) {
       removeFavorite(advert);
     } else {
       addFavorite(advert);
     }
-    setIsFavorite(!isFavorite);
   };
   const {
     _id,
