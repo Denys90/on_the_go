@@ -1,4 +1,4 @@
-import{n as o,t as s,r as p,j as t}from"./index-fa5857f1.js";import{u as h,b as g,s as a,d as f,g as b,M as j,h as v}from"./useAdvert-caf1f19e.js";const m=o.li`
+import{n as o,t as s,r as p,j as t}from"./index-2cd45e1a.js";import{u as h,b as g,s as a,d as f,g as b,M as j,h as v}from"./useAdvert-e1047d12.js";const m=o.li`
   position: relative;
   display: flex;
   justify-content: space-between;
