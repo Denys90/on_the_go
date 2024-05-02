@@ -1,8 +1,9 @@
 import styled from '@emotion/styled';
+import { CommonButton } from 'components/Catalog/Catalog.styled';
 import { ErrorMessage, Field } from 'formik';
 import { theme } from 'styles/theme';
-
-export const Input = styled(Field)`
+// Common
+export const CommonInput = `
   width: 400px;
   height: 56px;
   border: none;
@@ -14,6 +15,10 @@ export const Input = styled(Field)`
   &:focus {
     outline: none;
   }
+`;
+// ====================================
+export const Input = styled(Field)`
+  ${CommonInput}
 `;
 export const InputComment = styled(Field)`
   width: 400px;
@@ -32,21 +37,14 @@ export const InputComment = styled(Field)`
 `;
 
 export const ButtonSubmit = styled.button`
-  border: none;
-  color: white;
-  width: 160px;
-  height: 56px;
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  padding: 16px 60px 16px 60px;
-  flex: none;
-  order: 2;
-  flex-grow: 0;
-  margin: 24px 0px;
-  border-radius: 200px;
-  background: rgb(228, 72, 72);
+  ${CommonButton}
+
+  background: ${theme.colors.red};
+  cursor: pointer;
+
+  &:hover {
+    box-shadow: ${theme.colors.btnShadow};
+  }
   margin-bottom: 10px;
 `;
 

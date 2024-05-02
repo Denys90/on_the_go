@@ -111,7 +111,3 @@ export const LocationPinF = styled.div`
   display: flex;
   align-items: center;
 `;
-export const Box_location = styled.div`
-  display: flex;
-  align-items: center;
-`;

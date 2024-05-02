@@ -1,4 +1,7 @@
 import styled from '@emotion/styled';
+import { CommonButton } from 'components/Catalog/Catalog.styled';
+import { CommonInput } from 'components/Details/Form/FormFeatures.styled';
+import { Field } from 'formik';
 import { theme } from 'styles/theme';
 const CheckBoxCommon = `
   display: inline-block;
@@ -8,16 +11,22 @@ const CheckBoxCommon = `
 
 // ==========================================
 export const ContainerForEquipment = styled.div`
+  display: block;
   width: 360px;
-  display: inline-flex;
-  border-top: 2px solid ${theme.colors.grayScroll};
+  height: auto;
+
   padding-top: 24px;
   margin-right: 64px;
 `;
+
 export const EquipmentBox = styled.div`
+  padding-top: 24px;
   margin-bottom: 32px;
+  border-top: 2px solid ${theme.colors.grayScroll};
 `;
+
 export const VehicleBox = styled.div`
+  display: flex;
   border-top: 2px solid ${theme.colors.grayScroll};
   padding-top: 24px;
 `;
@@ -30,6 +39,7 @@ export const FirstTitle = styled.h2`
   text-align: left;
   margin-bottom: 14px;
 `;
+
 export const SecondTitle = styled.h3`
   font-size: 20px;
   font-weight: 600;
@@ -51,6 +61,7 @@ export const CheckBoxButton = styled.label`
     margin-bottom: 0;
   }
 `;
+
 export const CheckBoxButtonVan = styled.label`
   ${CheckBoxCommon}
   margin-right: 10px;
@@ -88,6 +99,7 @@ export const SvgStyles = styled.svg`
   stroke: #111;
   margin-bottom: 10px;
 `;
+
 export const SvgStylesVan = styled.svg`
   display: block;
   width: 40px;
@@ -95,10 +107,44 @@ export const SvgStylesVan = styled.svg`
   margin-bottom: 9px;
   stroke: #111;
 `;
+
 export const Equipment = styled.p`
   font-size: 16px;
   font-weight: 500;
   line-height: 20px;
   letter-spacing: 0%;
   text-align: center;
+`;
+
+export const Box_location = styled.div`
+  display: flex;
+  align-items: center;
+`;
+
+export const LocationContainer = styled.div`
+  margin-bottom: 32px;
+`;
+
+export const LocationTitle = styled.h3`
+  color: ${theme.colors.lightGray};
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 24px;
+  letter-spacing: 0%;
+  text-align: left;
+  margin-bottom: 8px;
+`;
+export const InputLocation = styled(Field)`
+  ${CommonInput}
+  width: 360px;
+`;
+export const ButtonSubmit = styled.button`
+  ${CommonButton}
+  margin-top: 64px;
+  background: ${theme.colors.red};
+  cursor: pointer;
+
+  &:hover {
+    box-shadow: ${theme.colors.btnShadow};
+  }
 `;

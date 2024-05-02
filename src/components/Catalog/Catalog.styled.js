@@ -1,6 +1,19 @@
+import { css } from '@emotion/react';
 import styled from '@emotion/styled';
 import { theme } from 'styles/theme';
-
+// Common
+export const CommonButton = css`
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  border: none;
+  color: white;
+  margin-top: 30px;
+  align-items: center;
+  padding: 16px 40px 16px 40px;
+  border-radius: 200px;
+`;
+// ===========================================================
 export const AlfaContainer = styled.div`
   display: inline-flex;
   margin-top: 80px;
@@ -158,15 +171,8 @@ export const StyleDetails = styled.div`
 `;
 
 export const ShowMoreBtn = styled.button`
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  border: none;
-  color: white;
-  margin-top: 30px;
-  align-items: center;
-  padding: 16px 40px 16px 40px;
-  border-radius: 200px;
+  ${CommonButton}
+
   background: ${theme.colors.red};
   cursor: pointer;
 
