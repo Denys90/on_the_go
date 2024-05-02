@@ -1,4 +1,4 @@
-import{n as o,t as s,r as p,j as t}from"./index-2cd45e1a.js";import{u as h,b as g,s as a,d as f,g as b,M as j,h as v}from"./useAdvert-e1047d12.js";const m=o.li`
+import{n as o,t as s,r as p,j as t}from"./index-c5f6adf6.js";import{u as h,b as g,s as a,d as f,g as b,M as j,h as v}from"./useAdvert-294d1354.js";const m=o.li`
   position: relative;
   display: flex;
   justify-content: space-between;
@@ -42,7 +42,9 @@ import{n as o,t as s,r as p,j as t}from"./index-2cd45e1a.js";import{u as h,b as 
   text-align: left;
 `,w=o.div`
   display: flex;
-`,y=o.button`
+`,y=o.div`
+  display: flex;
+`,k=o.button`
   position: absolute;
   top: 230px;
   right: 20px;
@@ -54,7 +56,7 @@ import{n as o,t as s,r as p,j as t}from"./index-2cd45e1a.js";import{u as h,b as 
   &:hover {
     color: ${s.colors.red};
   }
-`,k=o.p`
+`,F=o.p`
   display: block;
 
   font-size: 24px;
@@ -67,7 +69,7 @@ import{n as o,t as s,r as p,j as t}from"./index-2cd45e1a.js";import{u as h,b as 
     content: '\\20AC';
     display: inline-block;
   }
-`,F=o.div`
+`,S=o.div`
   display: flex;
   margin-bottom: 100px;
 `,$=o.p`
@@ -88,11 +90,8 @@ import{n as o,t as s,r as p,j as t}from"./index-2cd45e1a.js";import{u as h,b as 
 `;o.div`
   /* display: block;
   justify-content: flex-start; */
-`;const S=o.div`
+`;const C=o.div`
   font-size: 16px;
   display: flex;
   align-items: center;
-`,B=o.div`
-  display: flex;
-  align-items: center;
-`,C=()=>{const[n,l]=p.useState(!1),{favorite:r,removeFavorite:x}=h(),i=()=>{l(!n)};return t.jsxs("div",{children:[t.jsx(z,{children:"Favorites campers"}),r.length===0?t.jsx($,{children:"No favorite cemper selected."}):t.jsx("ul",{children:r.map(e=>t.jsxs(m,{children:[t.jsxs(w,{children:[t.jsx("img",{src:e.gallery[0],alt:"cemper"}),t.jsxs("div",{children:[t.jsx(u,{children:e.name}),t.jsx(F,{children:t.jsxs("div",{children:[t.jsxs(R,{children:[t.jsx(g,{children:t.jsx("use",{href:`${a}#Rating`})})," ",t.jsx("p",{children:e.rating}),t.jsxs("p",{children:["(",e.reviews.reduce((c,d)=>c+d.reviewer_rating,0)," ","Reviews)"]})]}),t.jsxs(B,{children:[" ",t.jsx(f,{children:t.jsx("use",{href:`${a}#icon-map`})}),t.jsx(S,{children:t.jsxs("p",{children:[" ",e.location]})})]})]})}),t.jsx(b,{type:"button",onClick:i,children:"Show more"})]})]}),t.jsx(y,{type:"button",onClick:()=>x(e),children:"Remove"}),t.jsxs(k,{children:[e.price,".00"]}),n&&t.jsx(j,{onClose:i,children:t.jsx(v,{id:e._id,toggleModal:i})})]},e._id))})]})},I=()=>t.jsx(C,{});export{I as default};
+`,B=()=>{const[n,l]=p.useState(!1),{favorite:r,removeFavorite:x}=h(),i=()=>{l(!n)};return t.jsxs("div",{children:[t.jsx(z,{children:"Favorites campers"}),r.length===0?t.jsx($,{children:"No favorite cemper selected."}):t.jsx("ul",{children:r.map(e=>t.jsxs(m,{children:[t.jsxs(w,{children:[t.jsx("img",{src:e.gallery[0],alt:"cemper"}),t.jsxs("div",{children:[t.jsx(u,{children:e.name}),t.jsx(S,{children:t.jsxs("div",{children:[t.jsxs(R,{children:[t.jsx(g,{children:t.jsx("use",{href:`${a}#Rating`})})," ",t.jsx("p",{children:e.rating}),t.jsxs("p",{children:["(",e.reviews.reduce((c,d)=>c+d.reviewer_rating,0)," ","Reviews)"]})]}),t.jsxs(y,{children:[" ",t.jsx(f,{children:t.jsx("use",{href:`${a}#icon-map`})}),t.jsx(C,{children:t.jsxs("p",{children:[" ",e.location]})})]})]})}),t.jsx(b,{type:"button",onClick:i,children:"Show more"})]})]}),t.jsx(k,{type:"button",onClick:()=>x(e),children:"Remove"}),t.jsx(F,{children:e.price}),n&&t.jsx(j,{onClose:i,children:t.jsx(v,{id:e._id,toggleModal:i})})]},e._id))})]})},_=()=>t.jsx(B,{});export{_ as default};
