@@ -9,7 +9,9 @@ import {
   Equipment,
   EquipmentBox,
   FirstTitle,
+  InputContainer,
   InputLocation,
+  InputSvg,
   LocationContainer,
   LocationTitle,
   SecondTitle,
@@ -39,13 +41,19 @@ export const Filter = () => {
           <Form>
             <LocationContainer>
               <LocationTitle>Location</LocationTitle>
-              <label htmlFor="name"></label>
-              <InputLocation
-                type="text"
-                name="location"
-                placeholder="Select a city"
-              />
-              {/* <Error name="location" component="div" /> */}
+              <InputContainer>
+                {' '}
+                <label htmlFor="name"></label>
+                <InputLocation
+                  type="text"
+                  name="location"
+                  placeholder="Select a city"
+                />
+                {/* <Error name="location" component="div" /> */}
+                <InputSvg>
+                  <use href={`${svg}#icon-map`}></use>
+                </InputSvg>
+              </InputContainer>
             </LocationContainer>
             <FirstTitle>Filters</FirstTitle>
             <SecondTitle>Vehicle equipment</SecondTitle>

@@ -3,7 +3,6 @@ import { ShowMoreBtn, SvgLocation, SvgRating } from '../Catalog/Catalog.styled';
 
 import {
   Box,
-  Box_location,
   BtnDelete,
   CardInfo,
   Item,
@@ -12,6 +11,7 @@ import {
   NoFavorite,
   PriceFavorite,
   Rating_Box,
+  SvgPosition,
   Title,
 } from './Favorite.styled';
 import svg from 'assets/icons/symbol-defs.svg';
@@ -57,7 +57,7 @@ export const Favorite = () => {
                           Reviews)
                         </p>
                       </Rating_Box>
-                      <Box_location>
+                      <SvgPosition>
                         {' '}
                         <SvgLocation>
                           <use href={`${svg}#icon-map`}></use>
@@ -65,7 +65,7 @@ export const Favorite = () => {
                         <LocationPinF>
                           <p> {cemper.location}</p>
                         </LocationPinF>
-                      </Box_location>
+                      </SvgPosition>
                     </div>
                   </Box>
                   <ShowMoreBtn type="button" onClick={toggleModal}>
@@ -77,7 +77,7 @@ export const Favorite = () => {
                 Remove
               </BtnDelete>
 
-              <PriceFavorite>{cemper.price}.00</PriceFavorite>
+              <PriceFavorite>{cemper.price}</PriceFavorite>
               {isOpen && (
                 <Modal onClose={toggleModal}>
                   <Details id={cemper._id} toggleModal={toggleModal} />

@@ -3,19 +3,18 @@ import { CommonButton } from 'components/Catalog/Catalog.styled';
 import { CommonInput } from 'components/Details/Form/FormFeatures.styled';
 import { Field } from 'formik';
 import { theme } from 'styles/theme';
+// Common
 const CheckBoxCommon = `
   display: inline-block;
   cursor: pointer;
-
 `;
 
 // ==========================================
 export const ContainerForEquipment = styled.div`
+  position: fixed;
   display: block;
   width: 360px;
   height: auto;
-
-  padding-top: 24px;
   margin-right: 64px;
 `;
 
@@ -137,6 +136,7 @@ export const LocationTitle = styled.h3`
 export const InputLocation = styled(Field)`
   ${CommonInput}
   width: 360px;
+  padding-left: 20px;
 `;
 export const ButtonSubmit = styled.button`
   ${CommonButton}
@@ -147,4 +147,19 @@ export const ButtonSubmit = styled.button`
   &:hover {
     box-shadow: ${theme.colors.btnShadow};
   }
+`;
+
+export const InputContainer = styled.div`
+  position: relative;
+`;
+
+export const InputSvg = styled.svg`
+  position: absolute;
+  top: 14px;
+  left: 15px;
+  display: block;
+  width: 16px;
+  height: 20px;
+  fill: white;
+  stroke: #111;
 `;

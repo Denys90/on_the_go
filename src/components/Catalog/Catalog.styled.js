@@ -20,6 +20,7 @@ export const AlfaContainer = styled.div`
 `;
 export const MainContainer = styled.div`
   display: block;
+  margin-left: 424px;
 `;
 export const Container = styled.div`
   width: 888px;

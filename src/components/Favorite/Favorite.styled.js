@@ -50,6 +50,9 @@ export const Name = styled.h2`
 export const CardInfo = styled.div`
   display: flex;
 `;
+export const SvgPosition = styled.div`
+  display: flex;
+`;
 
 export const BtnDelete = styled.button`
   position: absolute;

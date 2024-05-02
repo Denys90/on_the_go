@@ -74,7 +74,7 @@ export const Details = ({ id }) => {
                   <p> {advert.location}</p>
                 </LocationPin>
               </Location_Reting>
-              <Price>{advert.price}.00</Price>
+              <Price>{advert.price}</Price>
 
               <ContainerImg>
                 {advert.gallery.map((image, index) => (
