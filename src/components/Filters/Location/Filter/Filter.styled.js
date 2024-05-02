@@ -137,6 +137,9 @@ export const InputLocation = styled(Field)`
   ${CommonInput}
   width: 360px;
   padding-left: 20px;
+  &::placeholder {
+    color: ${theme.colors.black};
+  }
 `;
 export const ButtonSubmit = styled.button`
   ${CommonButton}
@@ -155,10 +158,10 @@ export const InputContainer = styled.div`
 
 export const InputSvg = styled.svg`
   position: absolute;
-  top: 14px;
+  top: 17px;
   left: 15px;
   display: block;
-  width: 16px;
+  width: 18px;
   height: 20px;
   fill: white;
   stroke: #111;
