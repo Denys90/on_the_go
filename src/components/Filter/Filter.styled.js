@@ -134,13 +134,21 @@ export const LocationTitle = styled.h3`
   margin-bottom: 8px;
 `;
 export const InputLocation = styled(Field)`
+  appearance: none;
   ${CommonInput}
+  cursor: pointer;
   width: 360px;
   padding-left: 20px;
+
   &::placeholder {
     color: ${theme.colors.black};
   }
+
+  &:hover {
+    cursor: pointer;
+  }
 `;
+
 export const ButtonSubmit = styled.button`
   ${CommonButton}
   margin-top: 64px;

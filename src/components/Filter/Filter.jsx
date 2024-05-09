@@ -20,8 +20,18 @@ import {
   VehicleBox,
 } from './Filter.styled';
 import svg from 'assets/icons/symbol-defs.svg';
+import { useAdvert } from '../../Hooks/useAdvert';
+import { useEffect, useState } from 'react';
 
 export const Filter = () => {
+  const [selectedLocation, setSelectedLocation] = useState('');
+  const { adverts } = useAdvert();
+
+  useEffect(() => {
+    const locations = adverts.map((advert) => advert.location);
+    setSelectedLocation(locations);
+  }, [adverts]);
+
   const initialValues = {
     location: '',
     option1: false,
@@ -45,11 +55,21 @@ export const Filter = () => {
                 {' '}
                 <label htmlFor="name"></label>
                 <InputLocation
-                  type="text"
+                  as="select"
                   name="location"
                   placeholder="Select a city"
-                />
-                {/* <Error name="location" component="div" /> */}
+                  value={values.location}
+                  onChange={(e) => setFieldValue('location', e.target.value)}
+                >
+                  <option value="">Select a city</option>
+
+                  {Array.isArray(selectedLocation) &&
+                    selectedLocation.map((location, index) => (
+                      <option key={index} value={location}>
+                        {location}
+                      </option>
+                    ))}
+                </InputLocation>
                 <InputSvg>
                   <use href={`${svg}#icon-map`}></use>
                 </InputSvg>

@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { CatalogList } from './CatalogList';
 import { AlfaContainer, LoadMore, MainContainer } from './Catalog.styled';
 import { useAdvert } from '../../Hooks/useAdvert';
-import { Filter } from 'components/Filters/Location/Filter/Filter';
+import { Filter } from 'components/Filter/Filter';
 
 const Catalog = () => {
   const [displayedCount, setDisplayedCount] = useState(5);
