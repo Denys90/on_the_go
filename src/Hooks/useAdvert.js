@@ -6,16 +6,22 @@ import {
   selectIsLoading,
   selectorAdverts,
   selectorFavorite,
+  selectorFilter,
 } from '../store/selectors';
 import { getAdvertsThunk } from '../store/thunks';
 import { useCallback } from 'react';
-import { addToFavorite, removeFromFavorite } from '../store/advertsSlice';
+import {
+  addToFavorite,
+  newFilterValues,
+  removeFromFavorite,
+} from '../store/advertsSlice';
 
 export const useAdvert = () => {
   const dispatch = useDispatch();
 
   const adverts = useSelector(selectorAdverts);
   const favorite = useSelector(selectorFavorite);
+  const filterValues = useSelector(selectorFilter);
   const isLoading = useSelector(selectIsLoading);
   const error = useSelector(selectError);
 
@@ -32,6 +38,12 @@ export const useAdvert = () => {
     },
     [dispatch, favorite]
   );
+  const addDataToFilter = useCallback(
+    (data) => {
+      dispatch(newFilterValues(data));
+    },
+    [dispatch]
+  );
 
   const removeFavorite = useCallback(
     (advert) => {
@@ -43,10 +55,12 @@ export const useAdvert = () => {
   return {
     adverts,
     favorite,
+    filterValues,
     isLoading,
     error,
     getAdvert,
     addFavorite,
     removeFavorite,
+    addDataToFilter,
   };
 };

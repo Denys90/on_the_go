@@ -1,10 +1,12 @@
 import { Formik, Form } from 'formik';
 import {
+  ButtonReset,
   ButtonSubmit,
   CheckBoxButton,
   CheckBoxButtonVan,
   CheckBoxInput,
   CheckBoxLabel,
+  ContainerButton,
   ContainerForEquipment,
   Equipment,
   EquipmentBox,
@@ -25,20 +27,24 @@ import { useEffect, useState } from 'react';
 
 export const Filter = () => {
   const [selectedLocation, setSelectedLocation] = useState('');
-  const { adverts } = useAdvert();
+  const { adverts, addDataToFilter, filterValues } = useAdvert();
 
   useEffect(() => {
     const locations = adverts.map((advert) => advert.location);
     setSelectedLocation(locations);
   }, [adverts]);
 
+  useEffect(() => {
+    console.log('Updated filterValues:', filterValues);
+  }, [filterValues]);
+
   const initialValues = {
     location: '',
-    option1: false,
-    option2: false,
-    option3: false,
-    option4: false,
-    option5: false,
+    AC: false,
+    Automatic: false,
+    Kitchen: false,
+    TV: false,
+    Shower: false,
     Van: false,
     Fully: false,
     Alcove: false,
@@ -46,8 +52,14 @@ export const Filter = () => {
 
   return (
     <ContainerForEquipment>
-      <Formik initialValues={initialValues} onSubmit={() => {}}>
-        {({ values, setFieldValue }) => (
+      <Formik
+        initialValues={initialValues}
+        onSubmit={(values) => {
+          console.log('Form values:', values);
+          addDataToFilter(values);
+        }}
+      >
+        {({ values, setFieldValue, resetForm }) => (
           <Form>
             <LocationContainer>
               <LocationTitle>Location</LocationTitle>
@@ -81,11 +93,11 @@ export const Filter = () => {
               <CheckBoxButton>
                 <CheckBoxInput
                   type="checkbox"
-                  name="option1"
-                  checked={values.option1}
-                  onChange={(e) => setFieldValue('option1', e.target.checked)}
+                  name="AC"
+                  checked={values.AC}
+                  onChange={(e) => setFieldValue('AC', e.target.checked)}
                 />
-                <CheckBoxLabel option={values.option1}>
+                <CheckBoxLabel option={values.AC ? 'true' : 'false'}>
                   <SvgStyles>
                     <use href={`${svg}#icon-wind`}></use>
                   </SvgStyles>
@@ -96,11 +108,11 @@ export const Filter = () => {
               <CheckBoxButton>
                 <CheckBoxInput
                   type="checkbox"
-                  name="option2"
-                  checked={values.option2}
-                  onChange={(e) => setFieldValue('option2', e.target.checked)}
+                  name="Automatic"
+                  checked={values.Automatic}
+                  onChange={(e) => setFieldValue('Automatic', e.target.checked)}
                 />
-                <CheckBoxLabel option={values.option2}>
+                <CheckBoxLabel option={values.Automatic ? 'true' : 'false'}>
                   <SvgStyles>
                     .<use href={`${svg}#icon-conect`}></use>
                   </SvgStyles>
@@ -111,11 +123,11 @@ export const Filter = () => {
               <CheckBoxButton>
                 <CheckBoxInput
                   type="checkbox"
-                  name="option3"
-                  checked={values.option3}
-                  onChange={(e) => setFieldValue('option3', e.target.checked)}
+                  name="Kitchen"
+                  checked={values.Kitchen}
+                  onChange={(e) => setFieldValue('Kitchen', e.target.checked)}
                 />
-                <CheckBoxLabel option={values.option3}>
+                <CheckBoxLabel option={values.Kitchen ? 'true' : 'false'}>
                   <SvgStyles>
                     <use href={`${svg}#icon-fork`}></use>
                   </SvgStyles>
@@ -126,11 +138,11 @@ export const Filter = () => {
               <CheckBoxButton>
                 <CheckBoxInput
                   type="checkbox"
-                  name="option4"
-                  checked={values.option4}
-                  onChange={(e) => setFieldValue('option4', e.target.checked)}
+                  name="TV"
+                  checked={values.TV}
+                  onChange={(e) => setFieldValue('TV', e.target.checked)}
                 />
-                <CheckBoxLabel option={values.option4}>
+                <CheckBoxLabel option={values.TV ? 'true' : 'false'}>
                   <SvgStyles>
                     <use href={`${svg}#icon-tv`}></use>
                   </SvgStyles>
@@ -141,11 +153,11 @@ export const Filter = () => {
               <CheckBoxButton>
                 <CheckBoxInput
                   type="checkbox"
-                  name="option5"
-                  checked={values.option5}
-                  onChange={(e) => setFieldValue('option5', e.target.checked)}
+                  name="Shower"
+                  checked={values.Shower}
+                  onChange={(e) => setFieldValue('Shower', e.target.checked)}
                 />
-                <CheckBoxLabel option={values.option5}>
+                <CheckBoxLabel option={values.Shower ? 'true' : 'false'}>
                   <SvgStyles>
                     <use href={`${svg}#icon-shower`}></use>
                   </SvgStyles>
@@ -164,7 +176,7 @@ export const Filter = () => {
                   checked={values.Van}
                   onChange={(e) => setFieldValue('Van', e.target.checked)}
                 />
-                <CheckBoxLabel option={values.Van}>
+                <CheckBoxLabel option={values.Van ? 'true' : 'false'}>
                   <SvgStylesVan>
                     <use href={`${svg}#icon-van1`}></use>
                   </SvgStylesVan>
@@ -179,7 +191,7 @@ export const Filter = () => {
                   checked={values.Fully}
                   onChange={(e) => setFieldValue('Fully', e.target.checked)}
                 />
-                <CheckBoxLabel option={values.Fully}>
+                <CheckBoxLabel option={values.Fully ? 'true' : 'false'}>
                   <SvgStylesVan>
                     <use href={`${svg}#icon-van2`}></use>
                   </SvgStylesVan>
@@ -194,7 +206,7 @@ export const Filter = () => {
                   checked={values.Alcove}
                   onChange={(e) => setFieldValue('Alcove', e.target.checked)}
                 />
-                <CheckBoxLabel option={values.Alcove}>
+                <CheckBoxLabel option={values.Alcove ? 'true' : 'false'}>
                   <SvgStylesVan>
                     <use href={`${svg}#icon-van3`}></use>
                   </SvgStylesVan>
@@ -202,7 +214,13 @@ export const Filter = () => {
                 </CheckBoxLabel>
               </CheckBoxButtonVan>
             </VehicleBox>
-            <ButtonSubmit type="submit">Search</ButtonSubmit>
+            <ContainerButton>
+              {' '}
+              <ButtonSubmit type="submit">Search</ButtonSubmit>
+              <ButtonReset type="button" onClick={() => resetForm()}>
+                Reset
+              </ButtonReset>
+            </ContainerButton>
           </Form>
         )}
       </Formik>

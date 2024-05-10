@@ -88,7 +88,9 @@ export const CheckBoxLabel = styled.span`
   border-radius: 10px;
   border: 2px solid ${theme.colors.black};
   border-color: ${(props) =>
-    props.option ? `${theme.colors.red}` : `${theme.colors.grayScroll}`};
+    props.option === 'true'
+      ? `${theme.colors.red}`
+      : `${theme.colors.grayScroll}`};
 `;
 
 export const SvgStyles = styled.svg`
@@ -149,14 +151,32 @@ export const InputLocation = styled(Field)`
   }
 `;
 
+export const ContainerButton = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 64px;
+`;
+
 export const ButtonSubmit = styled.button`
   ${CommonButton}
-  margin-top: 64px;
+  margin-top: 0;
   background: ${theme.colors.red};
+
   cursor: pointer;
 
   &:hover {
     box-shadow: ${theme.colors.btnShadow};
+  }
+`;
+export const ButtonReset = styled.button`
+  display: block;
+  border: none;
+  background: ${theme.colors.white};
+  cursor: pointer;
+
+  &:hover {
+    color: ${theme.colors.red};
   }
 `;
 
