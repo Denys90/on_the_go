@@ -27,16 +27,12 @@ import { useEffect, useState } from 'react';
 
 export const Filter = () => {
   const [selectedLocation, setSelectedLocation] = useState('');
-  const { adverts, addDataToFilter, filterValues } = useAdvert();
+  const { adverts, addDataToFilter } = useAdvert();
 
   useEffect(() => {
-    const locations = adverts.map((advert) => advert.location);
+    const locations = [...new Set(adverts.map((advert) => advert.location))];
     setSelectedLocation(locations);
   }, [adverts]);
-
-  useEffect(() => {
-    console.log('Updated filterValues:', filterValues);
-  }, [filterValues]);
 
   const initialValues = {
     location: '',
@@ -55,7 +51,6 @@ export const Filter = () => {
       <Formik
         initialValues={initialValues}
         onSubmit={(values) => {
-          console.log('Form values:', values);
           addDataToFilter(values);
         }}
       >
@@ -217,7 +212,12 @@ export const Filter = () => {
             <ContainerButton>
               {' '}
               <ButtonSubmit type="submit">Search</ButtonSubmit>
-              <ButtonReset type="button" onClick={() => resetForm()}>
+              <ButtonReset
+                type="button"
+                onClick={() => {
+                  resetForm(), addDataToFilter([]);
+                }}
+              >
                 Reset
               </ButtonReset>
             </ContainerButton>

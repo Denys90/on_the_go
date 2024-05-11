@@ -6,13 +6,38 @@ import { Filter } from 'components/Filter/Filter';
 
 const Catalog = () => {
   const [displayedCount, setDisplayedCount] = useState(5);
-  const { getAdvert, adverts, isLoading } = useAdvert();
+  const [filteredAdverts, setFilteredAdverts] = useState([]);
+  const { getAdvert, adverts, isLoading, filterValues } = useAdvert();
 
-  const newAdverts = adverts ? adverts.slice(0, displayedCount) : [];
+  console.log('filteredAdvertsState=====>', filteredAdverts);
+  console.log('filterValues======>', filterValues);
 
   useEffect(() => {
     getAdvert();
   }, []);
+
+  useEffect(() => {
+    const filterAdverts = () => {
+      const trueKeys = Object.keys(filterValues).filter(
+        (key) => filterValues[key]
+      );
+
+      return adverts.filter((advert) =>
+        trueKeys.every((key) => {
+          if (key === 'location') {
+            return advert.location.includes(filterValues[key]);
+          } else {
+            return (
+              Object.prototype.hasOwnProperty.call(advert, key) &&
+              advert[key] === true
+            );
+          }
+        })
+      );
+    };
+
+    setFilteredAdverts(filterAdverts());
+  }, [filterValues, adverts]);
 
   const handleLoadMore = () => {
     setDisplayedCount(displayedCount + 5);
@@ -24,7 +49,7 @@ const Catalog = () => {
       <Filter />
       <MainContainer>
         <ul>
-          {newAdverts.map((advert) => (
+          {filteredAdverts.slice(0, displayedCount).map((advert) => (
             <li key={advert._id}>
               <CatalogList advert={advert} />
             </li>

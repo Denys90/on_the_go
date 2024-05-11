@@ -1,5 +1,3 @@
-// hooks/useAdvert.js
-
 import { useDispatch, useSelector } from 'react-redux';
 import {
   selectError,
