@@ -11,31 +11,17 @@ import {
   Equipment,
   EquipmentBox,
   FirstTitle,
-  InputContainer,
-  InputLocation,
-  InputSvg,
-  LocationContainer,
-  LocationTitle,
   SecondTitle,
   SvgStyles,
   SvgStylesVan,
   VehicleBox,
 } from './Filter.styled';
 import svg from 'assets/icons/symbol-defs.svg';
-import { useAdvert } from '../../Hooks/useAdvert';
-import { useEffect, useState } from 'react';
+
+import { FilterLocation } from './FilterLocation';
 
 export const Filter = () => {
-  const [selectedLocation, setSelectedLocation] = useState('');
-  const { adverts, addDataToFilter } = useAdvert();
-
-  useEffect(() => {
-    const locations = [...new Set(adverts.map((advert) => advert.location))];
-    setSelectedLocation(locations);
-  }, [adverts]);
-
   const initialValues = {
-    location: '',
     AC: false,
     Automatic: false,
     Kitchen: false,
@@ -48,40 +34,10 @@ export const Filter = () => {
 
   return (
     <ContainerForEquipment>
-      <Formik
-        initialValues={initialValues}
-        onSubmit={(values) => {
-          addDataToFilter(values);
-        }}
-      >
+      <FilterLocation />
+      <Formik initialValues={initialValues} onSubmit={() => {}}>
         {({ values, setFieldValue, resetForm }) => (
           <Form>
-            <LocationContainer>
-              <LocationTitle>Location</LocationTitle>
-              <InputContainer>
-                {' '}
-                <label htmlFor="name"></label>
-                <InputLocation
-                  as="select"
-                  name="location"
-                  placeholder="Select a city"
-                  value={values.location}
-                  onChange={(e) => setFieldValue('location', e.target.value)}
-                >
-                  <option value="">Select a city</option>
-
-                  {Array.isArray(selectedLocation) &&
-                    selectedLocation.map((location, index) => (
-                      <option key={index} value={location}>
-                        {location}
-                      </option>
-                    ))}
-                </InputLocation>
-                <InputSvg>
-                  <use href={`${svg}#icon-map`}></use>
-                </InputSvg>
-              </InputContainer>
-            </LocationContainer>
             <FirstTitle>Filters</FirstTitle>
             <SecondTitle>Vehicle equipment</SecondTitle>
             <EquipmentBox>
@@ -215,7 +171,7 @@ export const Filter = () => {
               <ButtonReset
                 type="button"
                 onClick={() => {
-                  resetForm(), addDataToFilter([]);
+                  resetForm();
                 }}
               >
                 Reset

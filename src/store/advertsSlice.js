@@ -6,7 +6,7 @@ const initialState = {
   adverts: [],
   displayedCount: 5,
   favorites: [],
-  filter: [],
+  filteredLocation: [],
   isLoading: false,
   error: null,
 };
@@ -26,8 +26,8 @@ const advertsSlice = createSlice({
         (item) => item._id !== payload._id
       );
     },
-    newFilterValues: (state, { payload }) => {
-      state.filter = [payload];
+    saveFilteredLocations: (state, { payload }) => {
+      state.filteredLocation = payload;
     },
   },
   extraReducers: (builder) => {
@@ -42,7 +42,7 @@ const advertsSlice = createSlice({
   },
 });
 
-export const { addToFavorite, removeFromFavorite, newFilterValues } =
+export const { addToFavorite, removeFromFavorite, saveFilteredLocations } =
   advertsSlice.actions;
 
 export const advertReducer = advertsSlice.reducer;
