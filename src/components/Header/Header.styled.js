@@ -36,7 +36,7 @@ export const Logo = styled(NavLink)`
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
-    text-fill-color: transparent;
+    -text-fill-color: transparent;
   }
 `;
 
@@ -62,6 +62,16 @@ export const NavLinks = styled(NavLink)`
     color: ${theme.colors.red};
     text-decoration: underline;
   }
+  /* &::before {
+    content: '';
+    position: absolute;
+    width: 100px;
+    height: 2px;
+    background: #fff;
+    border-radius: 5px;
+    transform: scaleX(0);
+    transition: all 0.6s ease;
+  } */
 `;
 
 export const LogoImg = styled.img`

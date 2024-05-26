@@ -57,10 +57,12 @@ export const CatalogList = ({ advert }) => {
     transmission,
     engine,
   } = advert;
+  console.log('Show me gallery', gallery);
+
   return (
     <>
       <Container key={_id}>
-        <Image src={gallery[0]} alt="img" />
+        <Image src={gallery[1]} alt="img" />
         <ContainerDescription>
           <Title_Price>
             <h2> {name}</h2>
@@ -137,7 +139,7 @@ export const CatalogList = ({ advert }) => {
             <SVGIcons>
               <use href={`${svg}#icon-microwave`}></use>
             </SVGIcons>
-            {details.airConditioner.length > 0 ? 'icon-microwave' : null} AC
+            {details.airConditioner > 0 ? 'icon-microwave' : null} AC
           </StyleDetails>
           <ShowMoreBtn type="button" onClick={toggleModal}>
             Show more

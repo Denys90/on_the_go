@@ -24,9 +24,12 @@ export const useAdvert = () => {
   const isLoading = useSelector(selectIsLoading);
   const error = useSelector(selectError);
 
-  const getAdvert = useCallback(() => {
-    dispatch(getAdvertsThunk());
-  }, [dispatch]);
+  const getAdvert = useCallback(
+    (credentials) => {
+      dispatch(getAdvertsThunk(credentials));
+    },
+    [dispatch]
+  );
 
   const addFavorite = useCallback(
     (advert) => {
