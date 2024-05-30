@@ -1,20 +1,17 @@
+import { useCallback } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+
 import {
   selectError,
   selectIsLoading,
   selectorAdverts,
   selectorFavorite,
 } from '../store/selectors';
-import {
-  getAdvertsThunk,
-  searchByLocationThunk,
-  sortedAdvertsThunk,
-} from '../store/thunks';
-import { useCallback } from 'react';
+import { getAdvertsThunk, searchByLocationThunk } from '../store/thunks';
 import {
   addToFavorite,
+  filteringCampsByEquipment,
   removeFromFavorite,
-  saveFilteredLocations,
 } from '../store/advertsSlice';
 
 export const useAdvert = () => {
@@ -39,12 +36,6 @@ export const useAdvert = () => {
     },
     [dispatch]
   );
-  const advertsSorted = useCallback(
-    (credentials) => {
-      dispatch(sortedAdvertsThunk(credentials));
-    },
-    [dispatch]
-  );
 
   // ====================================================================
   const addFavorite = useCallback(
@@ -56,15 +47,17 @@ export const useAdvert = () => {
     },
     [dispatch, favorite]
   );
+
   const removeFavorite = useCallback(
-    (credentials) => {
-      dispatch(removeFromFavorite(credentials));
+    (data) => {
+      dispatch(removeFromFavorite(data));
     },
     [dispatch]
   );
-  const filteredLocations = useCallback(
-    (credentials) => {
-      dispatch(saveFilteredLocations(credentials));
+
+  const filteredAdverts = useCallback(
+    (filtered) => {
+      dispatch(filteringCampsByEquipment(filtered));
     },
     [dispatch]
   );
@@ -77,9 +70,7 @@ export const useAdvert = () => {
     getAdvert,
     addFavorite,
     advertsSearch,
-    advertsSorted,
     removeFavorite,
-
-    filteredLocations,
+    filteredAdverts,
   };
 };

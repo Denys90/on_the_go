@@ -31,18 +31,3 @@ export const searchByLocationThunk = createAsyncThunk(
     }
   }
 );
-
-export const sortedAdvertsThunk = createAsyncThunk(
-  'campers/sortedAdverts',
-  async (credentials, { rejectWithValue }) => {
-    try {
-      const response = await axios.get(`/Advert/?sorted=${credentials}`);
-      console.log('sortedAdvertsThunk', response.data);
-
-      return response.data;
-    } catch (error) {
-      console.error('Error sortedAdvertsThunk:', error);
-      return rejectWithValue(error.message);
-    }
-  }
-);

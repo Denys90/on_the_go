@@ -22,8 +22,7 @@ import { FilterLocation } from './FilterLocation';
 import { useAdvert } from '../../Hooks/useAdvert';
 
 export const Filter = () => {
-  const { advertsSorted } = useAdvert();
-
+  const { filteredAdverts, adverts } = useAdvert();
   const initialValues = {
     AC: false,
     Automatic: false,
@@ -46,9 +45,15 @@ export const Filter = () => {
             if (value === true) {
               selectedOptions.push(key);
             }
+
+            const filtered = adverts.filter((advert) =>
+              selectedOptions.every((option) => advert[option])
+            );
+
+            console.log('filtered=========>', filtered);
+
+            filteredAdverts(filtered);
           }
-          advertsSorted(selectedOptions);
-          console.log(selectedOptions);
         }}
       >
         {({ values, setFieldValue, resetForm }) => (

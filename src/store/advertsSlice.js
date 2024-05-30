@@ -1,14 +1,11 @@
 import { createSlice, isAnyOf } from '@reduxjs/toolkit';
-import {
-  getAdvertsThunk,
-  searchByLocationThunk,
-  sortedAdvertsThunk,
-} from './thunks';
+import { getAdvertsThunk, searchByLocationThunk } from './thunks';
 import { handleFulfilled, handlePending, handleReject } from './hendlers';
 
 const initialState = {
   adverts: [],
   favorites: [],
+  filteredAdverts: [],
   isLoading: false,
   error: null,
 };
@@ -28,8 +25,8 @@ const advertsSlice = createSlice({
         (item) => item._id !== payload._id
       );
     },
-    saveFilteredLocations: (state, { payload }) => {
-      state.filteredLocation = payload;
+    filteringCampsByEquipment: (state, { payload }) => {
+      state.filteredAdverts = payload;
     },
   },
   extraReducers: (builder) => {
@@ -47,9 +44,6 @@ const advertsSlice = createSlice({
       .addCase(searchByLocationThunk.fulfilled, (state, { payload }) => {
         state.adverts = payload;
       })
-      .addCase(sortedAdvertsThunk.fulfilled, (state, { payload }) => {
-        state.adverts = payload;
-      })
 
       .addMatcher(isAnyOf(...getActions('pending')), handlePending)
       .addMatcher(isAnyOf(...getActions('fulfilled')), handleFulfilled)
@@ -57,7 +51,7 @@ const advertsSlice = createSlice({
   },
 });
 
-export const { addToFavorite, removeFromFavorite, saveFilteredLocations } =
+export const { addToFavorite, removeFromFavorite, filteringCampsByEquipment } =
   advertsSlice.actions;
 
 export const advertReducer = advertsSlice.reducer;
