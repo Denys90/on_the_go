@@ -17,16 +17,31 @@ export const getAdvertsThunk = createAsyncThunk(
   }
 );
 
-export const searchAdvertsThunk = createAsyncThunk(
+export const searchByLocationThunk = createAsyncThunk(
   'campers/searchAdverts',
-  async (location, { rejectWithValue }) => {
+  async (credentials, { rejectWithValue }) => {
     try {
-      const response = await axios.get(`/Advert/?search=${location}`);
+      const response = await axios.get(`/Advert/?search=${credentials}`);
       console.log('sortingAdvertsThunk', response.data);
 
       return response.data;
     } catch (error) {
-      console.error('Error fetching adverts:', error);
+      console.error('Error searchByLocationThunk:', error);
+      return rejectWithValue(error.message);
+    }
+  }
+);
+
+export const sortedAdvertsThunk = createAsyncThunk(
+  'campers/sortedAdverts',
+  async (credentials, { rejectWithValue }) => {
+    try {
+      const response = await axios.get(`/Advert/?sorted=${credentials}`);
+      console.log('sortedAdvertsThunk', response.data);
+
+      return response.data;
+    } catch (error) {
+      console.error('Error sortedAdvertsThunk:', error);
       return rejectWithValue(error.message);
     }
   }

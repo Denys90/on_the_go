@@ -19,8 +19,11 @@ import {
 import svg from 'assets/icons/symbol-defs.svg';
 
 import { FilterLocation } from './FilterLocation';
+import { useAdvert } from '../../Hooks/useAdvert';
 
 export const Filter = () => {
+  const { advertsSorted } = useAdvert();
+
   const initialValues = {
     AC: false,
     Automatic: false,
@@ -35,7 +38,19 @@ export const Filter = () => {
   return (
     <ContainerForEquipment>
       <FilterLocation />
-      <Formik initialValues={initialValues} onSubmit={() => {}}>
+      <Formik
+        initialValues={initialValues}
+        onSubmit={(values) => {
+          const selectedOptions = [];
+          for (const [key, value] of Object.entries(values)) {
+            if (value === true) {
+              selectedOptions.push(key);
+            }
+          }
+          advertsSorted(selectedOptions);
+          console.log(selectedOptions);
+        }}
+      >
         {({ values, setFieldValue, resetForm }) => (
           <Form>
             <FirstTitle>Filters</FirstTitle>

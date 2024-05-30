@@ -1,5 +1,9 @@
 import { createSlice, isAnyOf } from '@reduxjs/toolkit';
-import { getAdvertsThunk, searchAdvertsThunk } from './thunks';
+import {
+  getAdvertsThunk,
+  searchByLocationThunk,
+  sortedAdvertsThunk,
+} from './thunks';
 import { handleFulfilled, handlePending, handleReject } from './hendlers';
 
 const initialState = {
@@ -40,7 +44,10 @@ const advertsSlice = createSlice({
           }
         });
       })
-      .addCase(searchAdvertsThunk.fulfilled, (state, { payload }) => {
+      .addCase(searchByLocationThunk.fulfilled, (state, { payload }) => {
+        state.adverts = payload;
+      })
+      .addCase(sortedAdvertsThunk.fulfilled, (state, { payload }) => {
         state.adverts = payload;
       })
 

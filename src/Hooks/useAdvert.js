@@ -5,7 +5,11 @@ import {
   selectorAdverts,
   selectorFavorite,
 } from '../store/selectors';
-import { getAdvertsThunk, searchAdvertsThunk } from '../store/thunks';
+import {
+  getAdvertsThunk,
+  searchByLocationThunk,
+  sortedAdvertsThunk,
+} from '../store/thunks';
 import { useCallback } from 'react';
 import {
   addToFavorite,
@@ -31,7 +35,13 @@ export const useAdvert = () => {
 
   const advertsSearch = useCallback(
     (credentials) => {
-      dispatch(searchAdvertsThunk(credentials));
+      dispatch(searchByLocationThunk(credentials));
+    },
+    [dispatch]
+  );
+  const advertsSorted = useCallback(
+    (credentials) => {
+      dispatch(sortedAdvertsThunk(credentials));
     },
     [dispatch]
   );
@@ -67,6 +77,7 @@ export const useAdvert = () => {
     getAdvert,
     addFavorite,
     advertsSearch,
+    advertsSorted,
     removeFavorite,
 
     filteredLocations,

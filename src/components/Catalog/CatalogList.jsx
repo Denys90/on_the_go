@@ -138,7 +138,7 @@ export const CatalogList = ({ advert }) => {
             <SVGIcons>
               <use href={`${svg}#icon-microwave`}></use>
             </SVGIcons>
-            {details.airConditioner > 0 ? 'icon-microwave' : null} AC
+            {details.microwave > 0 ? 'microwave' : null}
           </StyleDetails>
           <ShowMoreBtn type="button" onClick={toggleModal}>
             Show more
