@@ -10,32 +10,26 @@ import svg from 'assets/icons/symbol-defs.svg';
 import { useAdvert } from '../../Hooks/useAdvert';
 import { useEffect, useState } from 'react';
 
-export const FilterLocation = ({ onLocationChange }) => {
-  const [selectedLocation, setSelectedLocation] = useState('');
-  const { adverts } = useAdvert();
-
+export const FilterLocation = () => {
   const [uniqueLocations, setUniqueLocations] = useState([]);
+
+  const { advertsSearch, adverts } = useAdvert();
 
   useEffect(() => {
     const locations = [...new Set(adverts.map((advert) => advert.location))];
     setUniqueLocations(locations);
-  }, [adverts]);
+  }, []);
 
-  const handleLocationChange = (e) => {
+  const handleLocationChange = (e, setFieldValue) => {
     const selectedValue = e.target.value;
-    setSelectedLocation(selectedValue);
-    onLocationChange(selectedValue);
+    setFieldValue('location', selectedValue);
+    advertsSearch(selectedValue);
   };
 
   return (
     <div>
-      <Formik
-        initialValues={{ location: '' }}
-        onSubmit={() => {
-          console.log(selectedLocation);
-        }}
-      >
-        {({ values }) => (
+      <Formik initialValues={{ location: '' }} onSubmit={() => {}}>
+        {({ values, setFieldValue }) => (
           <Form>
             <LocationContainer>
               <LocationTitle>Location</LocationTitle>
@@ -44,11 +38,11 @@ export const FilterLocation = ({ onLocationChange }) => {
                 <InputLocation
                   as="select"
                   name="location"
-                  placeholder="Select a city"
+                  placeholder="All city"
                   value={values.location}
-                  onChange={handleLocationChange}
+                  onChange={(e) => handleLocationChange(e, setFieldValue)}
                 >
-                  <option value="">Select a city</option>
+                  <option value="">All city</option>
                   {uniqueLocations.map((location, index) => (
                     <option key={index} value={location}>
                       {location}

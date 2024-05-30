@@ -57,12 +57,11 @@ export const CatalogList = ({ advert }) => {
     transmission,
     engine,
   } = advert;
-  console.log('Show me gallery', gallery);
 
   return (
     <>
       <Container key={_id}>
-        <Image src={gallery[1]} alt="img" />
+        <Image src={gallery[0]} alt="img" />
         <ContainerDescription>
           <Title_Price>
             <h2> {name}</h2>

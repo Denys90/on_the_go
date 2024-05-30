@@ -16,3 +16,18 @@ export const getAdvertsThunk = createAsyncThunk(
     }
   }
 );
+
+export const searchAdvertsThunk = createAsyncThunk(
+  'campers/searchAdverts',
+  async (location, { rejectWithValue }) => {
+    try {
+      const response = await axios.get(`/Advert/?search=${location}`);
+      console.log('sortingAdvertsThunk', response.data);
+
+      return response.data;
+    } catch (error) {
+      console.error('Error fetching adverts:', error);
+      return rejectWithValue(error.message);
+    }
+  }
+);

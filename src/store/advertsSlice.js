@@ -1,12 +1,10 @@
 import { createSlice, isAnyOf } from '@reduxjs/toolkit';
-import { getAdvertsThunk } from './thunks';
+import { getAdvertsThunk, searchAdvertsThunk } from './thunks';
 import { handleFulfilled, handlePending, handleReject } from './hendlers';
 
 const initialState = {
   adverts: [],
-  // displayedCount: 5,
   favorites: [],
-  filteredLocation: [],
   isLoading: false,
   error: null,
 };
@@ -33,7 +31,16 @@ const advertsSlice = createSlice({
   extraReducers: (builder) => {
     builder
       .addCase(getAdvertsThunk.fulfilled, (state, { payload }) => {
-        // state.adverts = [...state.adverts, ...payload];
+        payload.forEach((newAdvert) => {
+          const existingIndex = state.adverts.findIndex(
+            (advert) => advert._id === newAdvert._id
+          );
+          if (existingIndex === -1) {
+            state.adverts.push(newAdvert);
+          }
+        });
+      })
+      .addCase(searchAdvertsThunk.fulfilled, (state, { payload }) => {
         state.adverts = payload;
       })
 
@@ -47,13 +54,3 @@ export const { addToFavorite, removeFromFavorite, saveFilteredLocations } =
   advertsSlice.actions;
 
 export const advertReducer = advertsSlice.reducer;
-// .addCase(getAdvertsThunk.fulfilled, (state, { payload }) => {
-//     payload.forEach((newAdvert) => {
-//         const existingIndex = state.adverts.findIndex(
-//             (advert) => advert._id === newAdvert._id
-//         );
-//         if (existingIndex === -1) {
-//             state.adverts.push(newAdvert);
-//         }
-//     });
-// })

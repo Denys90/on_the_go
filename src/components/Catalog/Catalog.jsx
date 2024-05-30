@@ -12,8 +12,6 @@ const Catalog = () => {
 
   const { getAdvert, adverts, isLoading } = useAdvert();
 
-  console.log('Adverts at Catalog', adverts);
-
   const dispatch = useDispatch();
 
   useEffect(() => {

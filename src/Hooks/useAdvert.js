@@ -4,9 +4,8 @@ import {
   selectIsLoading,
   selectorAdverts,
   selectorFavorite,
-  selectorLocation,
 } from '../store/selectors';
-import { getAdvertsThunk } from '../store/thunks';
+import { getAdvertsThunk, searchAdvertsThunk } from '../store/thunks';
 import { useCallback } from 'react';
 import {
   addToFavorite,
@@ -19,7 +18,6 @@ export const useAdvert = () => {
 
   const adverts = useSelector(selectorAdverts);
   const favorite = useSelector(selectorFavorite);
-  const filterByCity = useSelector(selectorLocation);
 
   const isLoading = useSelector(selectIsLoading);
   const error = useSelector(selectError);
@@ -31,6 +29,14 @@ export const useAdvert = () => {
     [dispatch]
   );
 
+  const advertsSearch = useCallback(
+    (credentials) => {
+      dispatch(searchAdvertsThunk(credentials));
+    },
+    [dispatch]
+  );
+
+  // ====================================================================
   const addFavorite = useCallback(
     (advert) => {
       const isFavorite = favorite.some((item) => item._id === advert._id);
@@ -40,7 +46,6 @@ export const useAdvert = () => {
     },
     [dispatch, favorite]
   );
-
   const removeFavorite = useCallback(
     (credentials) => {
       dispatch(removeFromFavorite(credentials));
@@ -55,14 +60,15 @@ export const useAdvert = () => {
   );
 
   return {
+    error,
     adverts,
     favorite,
-    filterByCity,
     isLoading,
-    error,
     getAdvert,
     addFavorite,
+    advertsSearch,
     removeFavorite,
+
     filteredLocations,
   };
 };
