@@ -20,6 +20,8 @@ import svg from 'assets/icons/symbol-defs.svg';
 
 import { FilterLocation } from './FilterLocation';
 import { useAdvert } from '../../Hooks/useAdvert';
+import { useSelector } from 'react-redux';
+import { selectorFilteredAdverts } from '../../store/selectors';
 
 export const Filter = () => {
   const { filteredAdverts, adverts } = useAdvert();
@@ -34,6 +36,9 @@ export const Filter = () => {
     Alcove: false,
   };
 
+  const filteredAdvertsFromRedux = useSelector(selectorFilteredAdverts);
+  console.log('Filtered adverts from Redux: ', filteredAdvertsFromRedux);
+
   return (
     <ContainerForEquipment>
       <FilterLocation />
@@ -41,19 +46,20 @@ export const Filter = () => {
         initialValues={initialValues}
         onSubmit={(values) => {
           const selectedOptions = [];
+          console.log('selectedOptions', selectedOptions);
           for (const [key, value] of Object.entries(values)) {
             if (value === true) {
               selectedOptions.push(key);
             }
-
-            const filtered = adverts.filter((advert) =>
-              selectedOptions.every((option) => advert[option])
-            );
-
-            console.log('filtered=========>', filtered);
-
-            filteredAdverts(filtered);
           }
+
+          const filtered = adverts.filter((advert) =>
+            selectedOptions.every((option) => advert[option])
+          );
+
+          console.log('filtered=========>', filtered);
+
+          filteredAdverts(filtered);
         }}
       >
         {({ values, setFieldValue, resetForm }) => (
